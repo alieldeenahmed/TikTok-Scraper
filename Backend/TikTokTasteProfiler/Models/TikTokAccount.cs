@@ -5,7 +5,7 @@ public class TikTokAccount
     public int ID {get; set;}
     public int Followers {get; set;}
     public int Following {get; set;}
-    public bool IsPublic {get; set;}
+    public bool IsPrivate {get; set;}
     public string Handle {get; set;}
     public DateTime LastScraped {get; set;}
     public List<Repost> Reposts {get; set;}
