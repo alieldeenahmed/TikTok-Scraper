@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using TikTokTasteProfiler.Services;
 using TikTokTasteProfiler.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,5 +20,11 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+using (var scope = app.Services.CreateScope())
+{
+    var scraper = new TikTokScraperService();
+    await scraper.RunAsync();
+}
 
 app.Run();
